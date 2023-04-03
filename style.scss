@@ -1,0 +1,119 @@
+
+$cube-size: 100px;
+$half-size: $cube-size / 2;
+
+@for $x from -1 through 2 {
+    @for $y from -1 through 2 {
+        @for $z from -1 through 2 {
+            .pos_#{$x}_#{$y}_#{$z} {
+                transform: translate3d(#{$x * $cube-size}, #{-$y * $cube-size}, #{$z * $cube-size});
+            }
+        }
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #222;
+    font-family: sans-serif;
+}
+
+
+.cube, .cubelet, .rotation-container {
+    transform-style: preserve-3d;
+    position: absolute;
+}
+
+.rotation-container {
+    transition: transform .4s;
+}
+
+.cube {
+    transform: perspective(1200px) rotateY(45deg) rotate3d(0.707, 0, 0.707, -22.5deg);
+    transition: transform .4s;
+}
+
+.face {
+    width: $cube-size;
+    height: $cube-size;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+}
+
+.left{
+    transform: translateX(-50%) translateY(-50%) rotateY(-90deg) translateZ($half-size);
+}
+
+.right{
+    transform: translateX(-50%) translateY(-50%) rotateY(90deg) translateZ($half-size);
+}
+
+.top{
+    transform: translateX(-50%) translateY(-50%) rotateX(90deg) translateZ($half-size) ;
+
+}
+
+.bottom{
+    transform: translateX(-50%) translateY(-50%) rotateX(-90deg) translateZ($half-size);
+
+}
+
+.front{
+    transform: translateX(-50%) translateY(-50%) translateZ($half-size);
+
+}
+
+.back{
+    transform: translateX(-50%) translateY(-50%) translateZ(-$half-size);
+}
+
+$colors: white, yellow, blue, green, red, orange;
+@each $color in $colors {
+    .#{$color} {
+        background-color: $color;
+    }
+}
+.controls {
+    display: flex;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 10vw;
+
+    p {
+        color: white;
+        font-size: .85rem;
+    }
+    button {
+        padding: 20px;
+        background-color: rgba(white, 0);
+        color: white;
+        border: 1px solid white;
+        transition: background-color 300ms;
+        cursor: pointer;
+        margin: 10px 0;
+    
+        &:hover {
+            background-color: rgba(white, .1);
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+}
