@@ -1,16 +1,12 @@
+////////////////////////////////////////////////////////////////////////////////
+// Parameters
 
 $cube-size: 100px;
 $half-size: $cube-size / 2;
+$colors: white, yellow, blue, green, red, orange;
 
-@for $x from -1 through 2 {
-    @for $y from -1 through 2 {
-        @for $z from -1 through 2 {
-            .pos_#{$x}_#{$y}_#{$z} {
-                transform: translate3d(#{$x * $cube-size}, #{-$y * $cube-size}, #{$z * $cube-size});
-            }
-        }
-    }
-}
+////////////////////////////////////////////////////////////////////////////////
+// General
 
 * {
     margin: 0;
@@ -27,13 +23,12 @@ body{
     line-height: 1.4;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// Cube and animation
+
 .cube, .cubelet, .rotation-container {
     transform-style: preserve-3d;
     position: absolute;
-}
-
-.rotation-container {
-    transition: transform .4s;
 }
 
 .cube {
@@ -47,11 +42,28 @@ body{
     width: $cube-size;
     height: $cube-size;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border: 2px solid black;
 }
+
+.rotation-container {
+    transition: transform .4s;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Cubelet positioning
+
+@for $x from -1 through 2 {
+    @for $y from -1 through 2 {
+        @for $z from -1 through 2 {
+            .pos_#{$x}_#{$y}_#{$z} {
+                transform: translate3d(#{$x * $cube-size}, #{-$y * $cube-size}, #{$z * $cube-size});
+            }
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Face positioning
 
 .left{
     transform: translateX(-50%) translateY(-50%) rotateY(-90deg) translateZ($half-size);
@@ -80,12 +92,17 @@ body{
     transform: translateX(-50%) translateY(-50%) translateZ(-$half-size);
 }
 
-$colors: white, yellow, blue, green, red, orange;
+////////////////////////////////////////////////////////////////////////////////
+// Face colors
+
 @each $color in $colors {
     .#{$color} {
         background-color: $color;
     }
 }
+
+////////////////////////////////////////////////////////////////////////////////
+// Interface
 
 .keycap {
     color: orange;

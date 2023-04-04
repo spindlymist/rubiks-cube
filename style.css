@@ -1,3 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  padding: 2rem;
+  background: #222;
+  font-family: sans-serif;
+  color: white;
+  line-height: 1.4;
+}
+
+.cube, .cubelet, .rotation-container {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: absolute;
+}
+
+.cube {
+  -webkit-transform: perspective(1200px) rotateY(45deg) rotate3d(0.707, 0, 0.707, -22.5deg);
+          transform: perspective(1200px) rotateY(45deg) rotate3d(0.707, 0, 0.707, -22.5deg);
+  -webkit-transition: -webkit-transform .4s;
+  transition: -webkit-transform .4s;
+  transition: transform .4s;
+  transition: transform .4s, -webkit-transform .4s;
+  left: 50%;
+  top: 50%;
+}
+
+.face {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border: 2px solid black;
+}
+
+.rotation-container {
+  -webkit-transition: -webkit-transform .4s;
+  transition: -webkit-transform .4s;
+  transition: transform .4s;
+  transition: transform .4s, -webkit-transform .4s;
+}
+
 .pos_-1_-1_-1 {
   -webkit-transform: translate3d(-100px, 100px, -100px);
           transform: translate3d(-100px, 100px, -100px);
@@ -316,62 +363,6 @@
 .pos_2_2_2 {
   -webkit-transform: translate3d(200px, -200px, 200px);
           transform: translate3d(200px, -200px, 200px);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  padding: 2rem;
-  background: #222;
-  font-family: sans-serif;
-  color: white;
-  line-height: 1.4;
-}
-
-.cube, .cubelet, .rotation-container {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  position: absolute;
-}
-
-.rotation-container {
-  -webkit-transition: -webkit-transform .4s;
-  transition: -webkit-transform .4s;
-  transition: transform .4s;
-  transition: transform .4s, -webkit-transform .4s;
-}
-
-.cube {
-  -webkit-transform: perspective(1200px) rotateY(45deg) rotate3d(0.707, 0, 0.707, -22.5deg);
-          transform: perspective(1200px) rotateY(45deg) rotate3d(0.707, 0, 0.707, -22.5deg);
-  -webkit-transition: -webkit-transform .4s;
-  transition: -webkit-transform .4s;
-  transition: transform .4s;
-  transition: transform .4s, -webkit-transform .4s;
-  left: 50%;
-  top: 50%;
-}
-
-.face {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 2px solid black;
 }
 
 .left {
