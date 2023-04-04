@@ -326,18 +326,12 @@
 }
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   height: 100vh;
+  padding: 2rem;
   background: #222;
   font-family: sans-serif;
+  color: white;
+  line-height: 1.4;
 }
 
 .cube, .cubelet, .rotation-container {
@@ -347,19 +341,21 @@ body {
 }
 
 .rotation-container {
-  -webkit-transition: -webkit-transform .5s;
-  transition: -webkit-transform .5s;
-  transition: transform .5s;
-  transition: transform .5s, -webkit-transform .5s;
+  -webkit-transition: -webkit-transform .4s;
+  transition: -webkit-transform .4s;
+  transition: transform .4s;
+  transition: transform .4s, -webkit-transform .4s;
 }
 
 .cube {
   -webkit-transform: perspective(1200px) rotateY(45deg) rotate3d(0.707, 0, 0.707, -22.5deg);
           transform: perspective(1200px) rotateY(45deg) rotate3d(0.707, 0, 0.707, -22.5deg);
-  -webkit-transition: -webkit-transform .5s;
-  transition: -webkit-transform .5s;
-  transition: transform .5s;
-  transition: transform .5s, -webkit-transform .5s;
+  -webkit-transition: -webkit-transform .4s;
+  transition: -webkit-transform .4s;
+  transition: transform .4s;
+  transition: transform .4s, -webkit-transform .4s;
+  left: 50%;
+  top: 50%;
 }
 
 .face {
@@ -430,6 +426,13 @@ body {
 
 .orange {
   background-color: orange;
+}
+
+.keycap {
+  color: orange;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1px 3px;
 }
 
 .controls {

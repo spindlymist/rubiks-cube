@@ -19,14 +19,13 @@ $half-size: $cube-size / 2;
 }
 
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
+    padding: 2rem;
     background: #222;
     font-family: sans-serif;
+    color: white;
+    line-height: 1.4;
 }
-
 
 .cube, .cubelet, .rotation-container {
     transform-style: preserve-3d;
@@ -40,6 +39,8 @@ body{
 .cube {
     transform: perspective(1200px) rotateY(45deg) rotate3d(0.707, 0, 0.707, -22.5deg);
     transition: transform .4s;
+    left: 50%;
+    top: 50%;
 }
 
 .face {
@@ -85,6 +86,14 @@ $colors: white, yellow, blue, green, red, orange;
         background-color: $color;
     }
 }
+
+.keycap {
+    color: orange;
+    border: 1px solid rgba(white, .2);
+    background-color: rgba(white, .1);
+    padding: 1px 3px;
+}
+
 .controls {
     display: flex;
     position: fixed;
